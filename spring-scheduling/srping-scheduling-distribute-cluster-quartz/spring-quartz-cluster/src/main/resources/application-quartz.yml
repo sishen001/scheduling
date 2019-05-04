@@ -1,0 +1,8 @@
+quartz:
+  jobs:
+  - jobName: test测试
+    cronExpression: 0/1 * * * * ?
+    jobStatus: 1
+    jobClass: QuartTest
+    methodName: test
+    isConcurrent: false

@@ -1,0 +1,59 @@
+server:
+  port: 8087
+
+spring:
+  quartz:
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: clusteredScheduler
+            instanceId: AUTO
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: false
+            clusterCheckinInterval: 10000
+            useProperties: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+    job-store-type: jdbc
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resource:
+    add-mappings: false
+  thymeleaf:
+    prefix: classpath:mybatis/**/*.xml
+    check-template-location: true
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/quartz-test
+    initialSize: 10
+    minIdle: 5
+    maxActive: 160
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 6000
+    minEvictableIdleTimeMillis: 3000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    useGlobalDataSourceStat: true
+mybatis:
+  #mapper.xml所在位置
+  mapper-locations: classpath:mybatis/**/*.xml
+
+
