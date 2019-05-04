@@ -38,8 +38,10 @@ public class ScheduleJobFactory {
         TriggerKey triggerKey = TriggerKey.triggerKey(job.getJobName(), job.getJobGroup());
  
         if (!ScheduleJob.STATUS_RUNNING.equals(job.getJobStatus())) {
-            logger.info("删除任务{}",job.getJobName());
-            this.deleteJob(scheduler,triggerKey);
+            logger.info("任务{}="+job.getJobName()+"还在运行");
+             return ;
+            //logger.info("删除任务{}",job.getJobName());
+            //this.deleteJob(scheduler,triggerKey);
         } else {
 
             logger.info(scheduler + "添加任务:{}", JSON.toJSONString(job));
