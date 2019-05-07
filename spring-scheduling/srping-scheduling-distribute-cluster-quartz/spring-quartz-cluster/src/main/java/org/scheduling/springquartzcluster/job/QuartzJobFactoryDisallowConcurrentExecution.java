@@ -6,6 +6,8 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.scheduling.springquartzcluster.entity.ScheduleJob;
 import org.scheduling.springquartzcluster.util.TaskUtils;
+import org.springframework.stereotype.Component;
+
 /**
     不允许并行执行
 */

@@ -1,11 +1,11 @@
-package org.scheduling.springquartzclustersecond.scheduling;
+package org.scheduling.springquartzcluster.scheduling;
 
 import com.alibaba.fastjson.JSON;
 import org.quartz.*;
-import org.scheduling.springquartzclustersecond.config.QuartzConfig;
-import org.scheduling.springquartzclustersecond.entity.ScheduleJob;
-import org.scheduling.springquartzclustersecond.job.QuartzJobFactoryAllowConcurrentExecution;
-import org.scheduling.springquartzclustersecond.job.QuartzJobFactoryDisallowConcurrentExecution;
+import org.scheduling.springquartzcluster.config.QuartzConfig;
+import org.scheduling.springquartzcluster.entity.ScheduleJob;
+import org.scheduling.springquartzcluster.job.QuartzJobFactoryAllowConcurrentExecution;
+import org.scheduling.springquartzcluster.job.QuartzJobFactoryDisallowConcurrentExecution;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,19 +36,11 @@ public class ScheduleJobFactory {
         }
         Scheduler scheduler = schedulerFactoryBean.getScheduler();
         TriggerKey triggerKey = TriggerKey.triggerKey(job.getJobName(), job.getJobGroup());
+        System.out.println("triggerKey 是否存在："+scheduler.checkExists(triggerKey));
 
-        if (!ScheduleJob.STATUS_RUNNING.equals(job.getJobStatus())) {
-            logger.info("任务{}="+job.getJobName()+"还在运行");
-            return ;
-            //logger.info("删除任务{}",job.getJobName());
-            //this.deleteJob(scheduler,triggerKey);
-        } else {
-
-            logger.info(scheduler + "添加任务:{}", JSON.toJSONString(job));
-            CronTrigger trigger = (CronTrigger) scheduler.getTrigger(triggerKey);
-            addJob(scheduler,triggerKey,job);
-        }
-
+        logger.info(scheduler + "添加任务:{}", JSON.toJSONString(job));
+        CronTrigger trigger = (CronTrigger) scheduler.getTrigger(triggerKey);
+        addJob(scheduler,triggerKey,job);
     }
 
     /**
@@ -62,28 +54,10 @@ public class ScheduleJobFactory {
         CronTrigger trigger = (CronTrigger) scheduler.getTrigger(triggerKey);
         if (null == trigger) {
             // 不存在,创建一个
-            setJobExistTrigger(scheduler,trigger,triggerKey,job);
+            setJobExistTriggerNot(scheduler,trigger,triggerKey,job);
         } else {
-            setJobNoExistTrigger(scheduler,trigger,triggerKey,job);
+            setJobExistTrigger(scheduler,trigger,triggerKey,job);
         }
-    }
-
-    /**
-     * 如果触发器key不存在,设置job
-     * @param scheduler 调度器
-     * @param trigger 触发器
-     * @param triggerKey 触发器key
-     * @param job 任务
-     * @throws Exception
-     */
-    private void setJobNoExistTrigger(Scheduler scheduler,CronTrigger trigger,TriggerKey triggerKey,ScheduleJob job)
-            throws Exception {
-        // Trigger已存在，那么更新相应的定时设置
-        CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(job.getCronExpression());
-        // 按新的cronExpression表达式重新构建trigger
-        trigger = trigger.getTriggerBuilder().withIdentity(triggerKey).withSchedule(scheduleBuilder).build();
-        // 按新的trigger重新设置job执行
-        scheduler.rescheduleJob(triggerKey, trigger);
     }
 
     /**
@@ -95,6 +69,24 @@ public class ScheduleJobFactory {
      * @throws Exception
      */
     private void setJobExistTrigger(Scheduler scheduler,CronTrigger trigger,TriggerKey triggerKey,ScheduleJob job)
+            throws Exception {
+        // Trigger已存在，那么更新相应的定时设置
+        CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(job.getCronExpression());
+        // 按新的cronExpression表达式重新构建trigger
+        trigger = trigger.getTriggerBuilder().withIdentity(triggerKey).withSchedule(scheduleBuilder).build();
+        // 按新的trigger重新设置job执行
+        scheduler.rescheduleJob(triggerKey, trigger);
+    }
+
+    /**
+     * 如果触发器key不存在,设置job
+     * @param scheduler 调度器
+     * @param trigger 触发器
+     * @param triggerKey 触发器key
+     * @param job 任务
+     * @throws Exception
+     */
+    private void setJobExistTriggerNot(Scheduler scheduler,CronTrigger trigger,TriggerKey triggerKey,ScheduleJob job)
             throws  Exception{
         Class clazz = job.isConcurrent() ? QuartzJobFactoryAllowConcurrentExecution.class
                 : QuartzJobFactoryDisallowConcurrentExecution.class;
@@ -107,6 +99,7 @@ public class ScheduleJobFactory {
         trigger = TriggerBuilder.newTrigger().withIdentity(job.getJobName(), job.getJobGroup())
                 .withSchedule(scheduleBuilder).build();
         scheduler.scheduleJob(jobDetail, trigger);
+
     }
 
     /**

@@ -1,7 +1,7 @@
 quartz:
   jobs:
   - jobName: test测试3
-    cronExpression: 0/30 * * * * ?
+    cronExpression: 0/10 * * * * ?
     jobStatus: 1
     jobClass: QuartTest
     methodName: test

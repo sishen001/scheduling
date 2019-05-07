@@ -1,6 +1,6 @@
-package org.scheduling.springquartzclustersecond.controller;
+package org.scheduling.springquartzcluster.controller;
 
-import org.scheduling.springquartzclustersecond.service.OrderService;
+import org.scheduling.springquartzcluster.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

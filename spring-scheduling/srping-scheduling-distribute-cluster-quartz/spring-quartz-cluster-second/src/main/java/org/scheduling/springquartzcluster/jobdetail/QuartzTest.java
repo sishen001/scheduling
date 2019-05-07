@@ -1,4 +1,4 @@
-package org.scheduling.springquartzclustersecond.jobdetail;
+package org.scheduling.springquartzcluster.jobdetail;
 
 import org.springframework.stereotype.Component;
 

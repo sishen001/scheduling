@@ -1,4 +1,4 @@
-package org.scheduling.springquartzclustersecond;
+package org.scheduling.springquartzcluster;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,6 +1,6 @@
-package org.scheduling.springquartzclustersecond.service;
+package org.scheduling.springquartzcluster.service;
 
-import org.scheduling.springquartzclustersecond.dao.OrderMapper;
+import org.scheduling.springquartzcluster.dao.OrderMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

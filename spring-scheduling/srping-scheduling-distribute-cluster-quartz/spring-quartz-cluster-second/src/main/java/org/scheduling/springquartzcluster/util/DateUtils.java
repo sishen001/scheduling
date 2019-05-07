@@ -1,4 +1,4 @@
-package org.scheduling.springquartzclustersecond.util;
+package org.scheduling.springquartzcluster.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

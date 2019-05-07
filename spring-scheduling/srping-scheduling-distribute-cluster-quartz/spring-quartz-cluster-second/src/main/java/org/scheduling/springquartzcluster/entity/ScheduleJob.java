@@ -1,4 +1,4 @@
-package org.scheduling.springquartzclustersecond.entity;
+package org.scheduling.springquartzcluster.entity;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

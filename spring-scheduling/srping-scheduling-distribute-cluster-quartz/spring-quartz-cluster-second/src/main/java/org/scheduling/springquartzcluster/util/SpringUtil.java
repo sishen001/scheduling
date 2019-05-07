@@ -1,4 +1,4 @@
-package org.scheduling.springquartzclustersecond.util;
+package org.scheduling.springquartzcluster.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

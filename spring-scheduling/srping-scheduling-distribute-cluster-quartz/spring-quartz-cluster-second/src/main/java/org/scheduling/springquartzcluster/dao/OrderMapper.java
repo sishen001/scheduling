@@ -1,4 +1,4 @@
-package org.scheduling.springquartzclustersecond.dao;
+package org.scheduling.springquartzcluster.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 

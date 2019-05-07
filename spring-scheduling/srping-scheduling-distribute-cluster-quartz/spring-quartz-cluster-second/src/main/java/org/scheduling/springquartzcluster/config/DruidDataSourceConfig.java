@@ -1,4 +1,4 @@
-package org.scheduling.springquartzclustersecond.config;
+package org.scheduling.springquartzcluster.config;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import org.apache.ibatis.session.SqlSessionFactory;

@@ -1,7 +1,7 @@
-package org.scheduling.springquartzclustersecond.config;
+package org.scheduling.springquartzcluster.config;
 
 import lombok.Data;
-import org.scheduling.springquartzclustersecond.entity.ScheduleJob;
+import org.scheduling.springquartzcluster.entity.ScheduleJob;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 

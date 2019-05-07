@@ -1,7 +1,7 @@
-package org.scheduling.springquartzclustersecond.util;
+package org.scheduling.springquartzcluster.util;
 
 import org.apache.commons.lang.StringUtils;
-import org.scheduling.springquartzclustersecond.entity.ScheduleJob;
+import org.scheduling.springquartzcluster.entity.ScheduleJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
