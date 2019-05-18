@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="lts-example-jobclient-java" />
+        <module name="lts-example-jobclient-spring-annotation" />
+        <module name="lts-example-jobclient-spring-xml" />
+        <module name="lts-example-jobclient-springboot" />
+        <module name="lts-example-jobtracker-java" />
+        <module name="lts-example-jobtracker-spring-annotaion" />
+        <module name="lts-example-jobtracker-spring-xml" />
+        <module name="lts-example-jobtracker-springboot" />
+        <module name="lts-example-monitor-springboot" />
+        <module name="lts-example-quartz" />
+        <module name="lts-example-tasktarcker-springboot" />
+        <module name="lts-example-tasktracker-java" />
+        <module name="lts-example-tasktracker-spring-annotation" />
+        <module name="lts-example-tasktracker-spring-annotation-shard" />
+        <module name="lts-example-tasktracker-spring-xml" />
+        <module name="lts-example-tasktracker-spring-xml-shard" />
+        <module name="lts-example-tasktracker-springboot-shard" />
+        <module name="lts-example-tasktracker-tester" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lts-example-jobclient" target="1.6" />
+      <module name="lts-example-jobclient-java" target="1.6" />
+      <module name="lts-example-jobclient-spring-annotation" target="1.6" />
+      <module name="lts-example-jobclient-spring-xml" target="1.6" />
+      <module name="lts-example-jobclient-springboot" target="1.6" />
+      <module name="lts-example-jobtracker" target="1.6" />
+      <module name="lts-example-jobtracker-java" target="1.6" />
+      <module name="lts-example-jobtracker-spring-annotaion" target="1.6" />
+      <module name="lts-example-jobtracker-spring-xml" target="1.6" />
+      <module name="lts-example-jobtracker-springboot" target="1.6" />
+      <module name="lts-example-monitor" target="1.6" />
+      <module name="lts-example-monitor-springboot" target="1.6" />
+      <module name="lts-example-quartz" target="1.6" />
+      <module name="lts-example-tasktarcker-springboot" target="1.6" />
+      <module name="lts-example-tasktracker" target="1.6" />
+      <module name="lts-example-tasktracker-java" target="1.6" />
+      <module name="lts-example-tasktracker-spring-annotation" target="1.6" />
+      <module name="lts-example-tasktracker-spring-annotation-shard" target="1.6" />
+      <module name="lts-example-tasktracker-spring-xml" target="1.6" />
+      <module name="lts-example-tasktracker-spring-xml-shard" target="1.6" />
+      <module name="lts-example-tasktracker-springboot-shard" target="1.6" />
+      <module name="lts-example-tasktracker-tester" target="1.6" />
+      <module name="lts-examples" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

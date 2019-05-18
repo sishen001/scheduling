@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="lts" />
+        <module name="lts-admin" />
+        <module name="lts-core" />
+        <module name="lts-jobclient" />
+        <module name="lts-jobtracker" />
+        <module name="lts-monitor" />
+        <module name="lts-spring" />
+        <module name="lts-startup" />
+        <module name="lts-tasktracker" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="light-task-scheduler-master" target="1.6" />
+      <module name="lts" target="1.6" />
+      <module name="lts-admin" target="1.6" />
+      <module name="lts-core" target="1.6" />
+      <module name="lts-jobclient" target="1.6" />
+      <module name="lts-jobtracker" target="1.6" />
+      <module name="lts-monitor" target="1.6" />
+      <module name="lts-spring" target="1.6" />
+      <module name="lts-startup" target="1.6" />
+      <module name="lts-tasktracker" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
