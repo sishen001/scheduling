@@ -1,3 +1,0 @@
-zkclient=com.github.ltsopensource.zookeeper.zkclient.ZkClientZookeeperTransporter
-curator=com.github.ltsopensource.zookeeper.curator.CuratorZookeeperTransporter
-lts=com.github.ltsopensource.zookeeper.lts.LtsZookeeperTransporter
